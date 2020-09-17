@@ -1,9 +1,10 @@
 package exe5
 
-class Concessionaria(val veiculo: Veiculo,val cliente: Cliente,
-                     val valor: Double) {
-    fun registrarVenda(){
-        Venda(valor,veiculo,cliente)
-        println("vendido o ${veiculo.marca} ${veiculo.modelo} para ${cliente.nome} por R\$$valor")
+class Concessionaria {
+    val registroDeVendas = ArrayList<Venda>()
+    fun registrarVenda(veiculo: Veiculo,cliente: Cliente, valor: Double){
+        var novaVenda = Venda(valor,veiculo,cliente)
+        registroDeVendas.add(novaVenda)
+        println("quantidade de vendas registradas: ${registroDeVendas.size}")
     }
 }
