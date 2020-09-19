@@ -24,7 +24,7 @@ class ContaCorrente(numero: Int, saldo: Double, private val taxaDeOperacao: Doub
     }
 
     override fun mostrarDados() {
-        println("Conta corrente. Atributos, número:$numero, saldo: $saldo, taxa de operacao: $taxaDeOperacao")
+        println("Conta Corrente $numero.\nSaldo: $saldo, Taxa de operacao: $taxaDeOperacao")
     }
 
 }

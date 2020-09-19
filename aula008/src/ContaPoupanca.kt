@@ -9,14 +9,12 @@ class ContaPoupanca(numero: Int, saldo: Double, private val limite: Double) : Co
             return false
         }
     }
-
     override fun depositar(valor: Double): Boolean {
         saldo += (valor)
         println("novo saldo $saldo")
         return true
     }
-
     override fun mostrarDados() {
-        println("Conta poupança. Atributos, atributos, número: $numero, saldo: $saldo, limite: $limite")
+        println("Conta Poupança $numero.\nSaldo: $saldo, Limite: $limite")
     }
 }
