@@ -7,7 +7,7 @@ class GuardaVolumes() {
     fun guardarPecas(listaDePeca: MutableList<Peca>): Int {
         chave[contador] = listaDePeca
         println("#############")
-        println("peça guardada")
+        println("peça guardada.")
         contador++
         return contador - 1
     }
@@ -23,29 +23,29 @@ class GuardaVolumes() {
                 }
             }
         } else {
-            println("volume vazio")
+            println("volume vazio.")
         }
     }
 
     fun mostrarPeca(numero: Int) {
         if (chave.containsKey(numero)) {
             println("#############")
-            println("chave encontrada")
+            println("chave encontrada.")
             println("${numero}, ${chave[numero]}")
         } else {
             println("#############")
-            println("chave não encontrada")
+            println("chave não encontrada.")
         }
     }
 
     fun devolverPecas(numero: Int) {
         if (chave.containsKey(numero)) {
             println("#############")
-            println("chave: $numero, peças devolvidas")
+            println("chave: $numero, peças devolvidas.")
             chave.remove(numero)
         } else {
             println("#############")
-            println("chave não encontrada")
+            println("chave não encontrada.")
         }
     }
 }
