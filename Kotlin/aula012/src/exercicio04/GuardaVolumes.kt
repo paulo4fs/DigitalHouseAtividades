@@ -7,7 +7,7 @@ class GuardaVolumes() {
     fun guardarPecas(listaDePeca: MutableList<Peca>): Int {
         chave[contador] = listaDePeca
         println("#############")
-        println("peça guardada.")
+        println("peça(s) guardada(s).")
         contador++
         return contador - 1
     }

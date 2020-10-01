@@ -7,4 +7,5 @@ fun main() {
     guardaVolumes.guardarPecas(mutableListOf(ferramenta, ferramenta2))
     guardaVolumes.mostrarPecas()
     ferramenta.retirada("fiat", "uno", guardaVolumes)
+    guardaVolumes.mostrarPecas()
 }

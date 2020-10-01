@@ -1,4 +1,9 @@
-class ContaCorrente(numero: Int, saldo: Double, private val taxaDeOperacao: Double) : ContaBancaria(numero, saldo),
+class ContaCorrente(
+    numero: Int,
+    saldo: Double,
+    private val taxaDeOperacao: Double
+) :
+    ContaBancaria(numero, saldo),
     Imprimivel {
     var limite: Double = 200.00
     override fun sacar(valor: Double): Boolean {
