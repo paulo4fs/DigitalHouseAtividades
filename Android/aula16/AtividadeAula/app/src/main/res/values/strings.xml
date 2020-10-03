@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ExemploAula</string>
+    <string name="minhaFonte">sans-serif-light</string>
+    <string name="singUp"><u>Sign Up</u></string>
+    <string name="log_in">Log In</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="foobar">FOOBAR</string>
+</resources>
