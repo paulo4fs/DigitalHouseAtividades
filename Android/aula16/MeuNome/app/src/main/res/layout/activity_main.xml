@@ -20,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:hint="@string/digite_seu_nome" />
+        android:hint="@string/digite_seu_nome"
+        android:inputType="text" />
 
     <Button
         android:id="@+id/btnExibir"
@@ -29,8 +30,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
         android:background="@color/colorPrimaryDark"
-        android:text="@string/exibir"
         android:paddingHorizontal="40dp"
+        android:text="@string/exibir"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite" />
 
