@@ -20,8 +20,7 @@ class MainActivity : AppCompatActivity() {
         if (horas.isNullOrBlank() || valor.isNullOrBlank()) {
             txtSalario.text = "R$ XXXXX,XX"
         } else if (horas.toDouble() > 0 && valor.toDouble() > 0) {
-            val salario = horas.toDouble() * valor.toDouble()
-            txtSalario.text = "R$ $salario"
+            txtSalario.text = "R$ ${horas.toDouble() * valor.toDouble()}"
         }
     }
 }

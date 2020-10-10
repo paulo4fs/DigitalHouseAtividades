@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         btnExibir.setOnClickListener { mudarNome(meuNome.text.toString()) }
     }
 
-    fun mudarNome(nome: String) {
+    private fun mudarNome(nome: String) {
         placeholder.text = nome
     }
 }
