@@ -20,6 +20,7 @@
             android:hint="@string/Nome">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputFieldNome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -30,12 +31,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="@string/ano"
-            android:inputType="number">
+            android:hint="@string/ano">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputFieldAno"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,8 +48,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             android:padding="15dp"
-            android:textSize="20sp"
             android:text="@string/calcular"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textSize="20sp" />
     </LinearLayout>
 </FrameLayout>
