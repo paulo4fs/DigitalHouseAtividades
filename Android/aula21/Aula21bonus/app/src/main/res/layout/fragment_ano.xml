@@ -14,27 +14,27 @@
         android:padding="20dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldNome"
+            android:id="@+id/tiLayoutNome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/Nome">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputFieldNome"
+                android:id="@+id/tiEditTextNome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldAno"
+            android:id="@+id/tiLayoutAno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/ano">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputFieldAno"
+                android:id="@+id/tiEditTextAno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number" />

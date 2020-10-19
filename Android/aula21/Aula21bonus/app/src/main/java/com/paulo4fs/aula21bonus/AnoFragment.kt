@@ -26,8 +26,8 @@ class AnoFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_ano, container, false)
 
         view.btn.setOnClickListener {
-            var nomeText: String = view.textInputFieldNome.text.toString()
-            val anoText: String = view.textInputFieldAno.text.toString()
+            var nomeText: String = view.tiEditTextNome.text.toString()
+            val anoText: String = view.tiEditTextAno.text.toString()
             iClicou.calcularIdade(nomeText, anoText.toInt())
         }
         return view

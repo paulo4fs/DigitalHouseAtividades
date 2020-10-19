@@ -7,17 +7,16 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <fragment
+    <FrameLayout
         android:id="@+id/anoFragment"
         android:name="com.paulo4fs.aula21bonus.AnoFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        tools:ignore="Suspicious0dp"
-        />
+        tools:ignore="Suspicious0dp" />
 
-    <fragment
-        android:id="@+id/resultFragment"
+    <FrameLayout
+        android:id="@+id/resultContainer"
         android:name="com.paulo4fs.aula21bonus.ResultFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_result.*
 import kotlinx.android.synthetic.main.fragment_result.view.*
 
@@ -13,7 +14,8 @@ import kotlinx.android.synthetic.main.fragment_result.view.*
  * Use the [ResultFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ResultFragment : Fragment() {
+class ResultFragment(var resultado: String = "XXX, sua idade é X ano(s)") : Fragment() {
+
     lateinit var minhaView: View
 
     override fun onCreateView(
@@ -22,15 +24,9 @@ class ResultFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         minhaView = inflater.inflate(R.layout.fragment_result, container, false)
-
+        minhaView.tvResult.text = resultado
         return minhaView
     }
 
-    fun mostrarResultado(nome: String, idade: Int) {
-        if (idade >= 0) {
-            minhaView.tvResult.text = "$nome, sua idade é $idade"
-        } else {
-            minhaView.tvResult.text = "$nome ainda não nasceu"
-        }
-    }
+
 }
