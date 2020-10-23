@@ -1,50 +1,52 @@
 package com.example.rickfragment
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.digitalhouse.rickapp.api.IRespostaDaApi
-import com.digitalhouse.rickapp.api.Personagem
-import com.digitalhouse.rickapp.api.RickApi
+import android.widget.Button
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentContainer
+import androidx.fragment.app.FragmentManager
+import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), IClick {
+
+    //instancio meus fragments
+    private val fragmentA = AFragment()
+    private val fragmentB = BFragment()
+
+    //atribuo meu supportManager para a variavel manager
+    private val manager = supportFragmentManager
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewList)
-        val manager = GridLayoutManager(this, 2)
+        //passo para minha função o id do meu container e meu fragment inicializado
+        addFragment(fragmentA, R.id.fragmentContainerA)
+        addFragment(fragmentB, R.id.fragmentContainerB)
 
-        var toast: Toast? = null
+    }
 
-        RickApi.getData(this, object : IRespostaDaApi {
+    override fun click(name: String, birthYear: Int) {
+        //ano atual
+        val currentYear = Calendar.getInstance().get(Calendar.YEAR)
 
-            override fun obtevePersonagens(personagens: List<Personagem>) {
-                val rvAdapter = RvAdapter(personagens) {
-                    toast?.cancel()
-                    toast = Toast.makeText(this@MainActivity, it.nome, Toast.LENGTH_LONG)
-                    toast?.show()
+        if (currentYear.compareTo(birthYear) < 0) {
+            fragmentB.changeText(" $name ainda não nasceu")
+        } else {
+            //subtração do ano atual com o ano de nascimento, atribuido numa varivel
+            val age = currentYear.minus(birthYear)
+            fragmentB.changeText("$name, você tem $age anos")
+        }
+    }
 
-                    /*
-                    val intent = Intent(this@MainActivity, activity_card::class.java)
-                    intent.putExtra("name", it.nome)
-                    intent.putExtra("localizacao", it.localizacao.nome)
-                    intent.putExtra("imagem", it.imagemUrl)
-                    intent.putExtra("genero", it.genero)
-                    intent.putExtra("status", it.status)
 
-                    startActivity(intent)*/
-                }
-
-                recyclerView.apply {
-                    setHasFixedSize(true)
-                    layoutManager = manager
-                    adapter = rvAdapter
-                }
-            }
-        })
+    //função que chama o fragment e adiciona no nosso container da Activity
+    private fun addFragment(fragment: Fragment, container: Int) {
+        val transaction = manager.beginTransaction()
+        transaction.add(container, fragment)
+        transaction.commit()
     }
 }

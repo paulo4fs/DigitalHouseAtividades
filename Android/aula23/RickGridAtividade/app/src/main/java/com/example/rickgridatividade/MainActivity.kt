@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                     toast?.show()
 
                     val intent = Intent(this@MainActivity, activity_card::class.java)
-                    intent.putExtra("name", it.nome)
+                    intent.putExtra("nome", it.nome)
                     intent.putExtra("localizacao", it.localizacao.nome)
                     intent.putExtra("imagem", it.imagemUrl)
                     intent.putExtra("genero", it.genero)
