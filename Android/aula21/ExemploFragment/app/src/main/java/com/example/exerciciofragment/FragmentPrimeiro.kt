@@ -23,16 +23,13 @@ class FragmentPrimeiro : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_primeiro, container, false)
-
         calcula(view)
         return view
     }
 
     private fun calcula(view: View) {
-
         view.btnCalcula.setOnClickListener {
             //var success = true
-
             //resgato o valor e atribuo para uma variavel
             val name = view.tvName.editText?.text.toString()
             if (name.isEmpty()){

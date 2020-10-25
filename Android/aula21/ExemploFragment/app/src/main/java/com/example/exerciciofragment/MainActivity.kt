@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity(), IClick {
     //atribuo meu supportManager para a variavel manager
     private val manager = supportFragmentManager
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,7 +32,7 @@ class MainActivity : AppCompatActivity(), IClick {
         val currentYear = Calendar.getInstance().get(Calendar.YEAR)
 
         if (currentYear.compareTo(birthYear) < 0) {
-            fragmentB.changeText(" $name ainda não nasceu")
+            fragmentB.changeText("$name ainda não nasceu")
         } else {
             //subtração do ano atual com o ano de nascimento, atribuido numa varivel
             val age = currentYear.minus(birthYear)

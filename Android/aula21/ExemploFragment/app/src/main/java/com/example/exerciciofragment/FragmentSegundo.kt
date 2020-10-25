@@ -22,8 +22,6 @@ class FragmentSegundo : Fragment() {
 
     //funcionalidade para alterar o texto da view no fragment
     fun changeText(text: String) {
-        var fragmentB: View =
-//        tvFragmentB.text = text
-
+        tvFragmentB.text = text
     }
 }
