@@ -34,7 +34,7 @@ class FragmentSignup : Fragment() {
         return view
     }
 
-    fun submit(view: View) {
+    private fun submit(view: View) {
         val btnSignup = view.findViewById<Button>(R.id.btnSignup)
 
         val checkbox = view.findViewById<CheckBox>(R.id.checkboxSignup)
@@ -64,7 +64,7 @@ class FragmentSignup : Fragment() {
         }
     }
 
-    fun errorHandler(view: View) {
+    private fun errorHandler(view: View) {
         val name =
             view.findViewById<TextInputEditText>(R.id.tietNameSignup).text.toString()
         val nameLayout =
@@ -89,7 +89,7 @@ class FragmentSignup : Fragment() {
         }
     }
 
-    fun errorLabel(label: String, layout: TextInputLayout) {
+    private fun errorLabel(label: String, layout: TextInputLayout) {
         if (label.isEmpty()) {
             layout.isErrorEnabled = true
             layout.error = "it's empty"

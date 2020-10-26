@@ -16,7 +16,6 @@ class FragmentSegundo : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         fragmentBView = inflater.inflate(R.layout.fragment_segundo, container, false)
-
         return fragmentBView
     }
 

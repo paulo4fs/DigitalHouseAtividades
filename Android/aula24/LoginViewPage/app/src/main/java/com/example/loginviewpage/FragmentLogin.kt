@@ -2,6 +2,7 @@ package com.example.loginviewpage
 
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.google.android.material.textfield.TextInputLayout
 
 class FragmentLogin : Fragment() {
     private lateinit var iSubmit: ISubmit
+    private lateinit var viewLogin: View
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -23,12 +25,19 @@ class FragmentLogin : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
-        login(view)
-        return view
+        viewLogin = inflater.inflate(R.layout.fragment_login, container, false)
+        login(viewLogin)
+        return viewLogin
     }
 
-    fun login(view: View) {
+/*    fun changeName(name: String, newUser: Boolean) {
+        if (newUser) {
+            var nameText = viewLogin.findViewById<TextInputEditText>(R.id.tietNameLogin)
+            nameText.text = name
+        }
+    }*/
+
+    private fun login(view: View) {
         val btnLogin =
             view.findViewById<Button>(R.id.btnLogin)
 
@@ -50,7 +59,8 @@ class FragmentLogin : Fragment() {
         }
     }
 
-    fun errorLabel(label: String, layout: TextInputLayout) {
+
+    private fun errorLabel(label: String, layout: TextInputLayout) {
         if (label.isEmpty()) {
             layout.isErrorEnabled = true
             layout.error = "it's empty"
@@ -58,4 +68,5 @@ class FragmentLogin : Fragment() {
             layout.isErrorEnabled = false
         }
     }
+
 }

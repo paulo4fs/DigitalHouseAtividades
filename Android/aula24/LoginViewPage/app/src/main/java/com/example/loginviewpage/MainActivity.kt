@@ -2,22 +2,22 @@ package com.example.loginviewpage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
-import com.example.loginviewpage.users.User
 import com.example.loginviewpage.users.UserService
 import com.google.android.material.tabs.TabLayout
-import kotlinx.android.synthetic.main.fragment_signup.*
 
 class MainActivity : AppCompatActivity(), ISubmit {
+    private lateinit var pager: ViewPager
+    private lateinit var tab: TabLayout
+    private var fragmentLogin: FragmentLogin = FragmentLogin()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val pager = findViewById<ViewPager>(R.id.viewpager)
-        val tab = findViewById<TabLayout>(R.id.tablayout)
+        pager = findViewById<ViewPager>(R.id.viewpager)
+        tab = findViewById<TabLayout>(R.id.tablayout)
 
         // faz com que o tab use o viewpager
         tab.setupWithViewPager(pager)
@@ -41,7 +41,8 @@ class MainActivity : AppCompatActivity(), ISubmit {
 
     override fun signup(name: String, password: String) {
         UserService.register(name, password)
-        Toast.makeText(this, "${UserService.users.size}", Toast.LENGTH_LONG).show()
+//        Toast.makeText(this, "${UserService.users.size}", Toast.LENGTH_LONG).show()
+        pager.currentItem = 0
     }
 
     override fun signin(name: String, password: String) {
