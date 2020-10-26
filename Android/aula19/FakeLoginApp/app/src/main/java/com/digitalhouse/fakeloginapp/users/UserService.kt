@@ -4,9 +4,7 @@ import java.lang.Exception
 
 class UserService {
     companion object {
-
         private val users = arrayListOf<UserModel>()
-
         /**
          * Realiza login
          */

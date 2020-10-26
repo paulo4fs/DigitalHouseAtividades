@@ -15,7 +15,7 @@
         android:paddingEnd="40dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tfOutlineLogin"
+            android:id="@+id/tilNameLogin"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             app:endIconTint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tfNameLogin"
+                android:id="@+id/tietNameLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary"
@@ -38,7 +38,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/outlinedTextFieldSignup"
+            android:id="@+id/tilPasswordLogin"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
             app:endIconTint="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtPasswordLogin"
+                android:id="@+id/tietPasswordLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -64,7 +64,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:backgroundTint="@color/colorPrimary"
-            android:enabled="false"
             android:paddingHorizontal="40dp"
             android:paddingVertical="10dp"
             android:text="Log in"

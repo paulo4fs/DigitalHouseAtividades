@@ -11,16 +11,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_vertical"
         android:orientation="vertical"
+
         android:paddingStart="40dp"
         android:paddingEnd="40dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tfOutlineNameSignup"
+            android:id="@+id/tilNameSignup"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorPrimary"
-            app:boxStrokeColor="@color/colorPrimary">
+            app:boxStrokeColor="@color/colorPrimary"
+            app:errorEnabled="false"
+            app:errorTextAppearance="@style/error_appearance">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tietNameSignup"
@@ -36,14 +39,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tfOutlinePasswordSignup"
+            android:id="@+id/tilPasswordSignup"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:backgroundTint="@color/colorPrimary"
             android:hint="Password"
-            app:boxStrokeColor="@color/colorPrimary">
+            app:boxStrokeColor="@color/colorPrimary"
+            app:errorEnabled="false"
+            app:errorTextAppearance="@style/error_appearance">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tietPasswordSignup"
@@ -52,15 +57,17 @@
                 android:inputType="textPassword"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tfOutlinePasswordConfirmSignup"
+            android:id="@+id/tilPasswordConfirmSignup"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="15dp"
+            app:errorEnabled="false"
+            app:errorTextAppearance="@style/error_appearance"
+            app:helperTextTextColor="@android:color/holo_red_dark">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tietPasswordConfirmSignup"
@@ -70,15 +77,14 @@
                 android:inputType="textPassword"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
-            android:id="@+id/checkbox"
+            android:id="@+id/checkboxSignup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="I have read and agree with the Privacy Policy"
+            android:text="I have read and agree with you"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp" />
 
@@ -88,7 +94,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="30dp"
             android:backgroundTint="@color/colorPrimary"
             android:enabled="false"
             android:paddingHorizontal="40dp"
@@ -96,8 +103,5 @@
             android:text="Sign Up"
             android:textColor="@color/white"
             android:textSize="16sp" />
-
-
     </LinearLayout>
-
 </FrameLayout>

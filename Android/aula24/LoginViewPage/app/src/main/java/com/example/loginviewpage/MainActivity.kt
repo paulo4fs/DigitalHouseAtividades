@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
+import com.example.loginviewpage.users.User
+import com.example.loginviewpage.users.UserService
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_signup.*
 
 class MainActivity : AppCompatActivity(), ISubmit {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,11 +40,15 @@ class MainActivity : AppCompatActivity(), ISubmit {
     }
 
     override fun signup(name: String, password: String) {
-        Toast.makeText(this@MainActivity, name, Toast.LENGTH_LONG).show()
-        btnSignup.text = "ujhasfdjhasdfuhsdfa"
+        UserService.register(name, password)
+        Toast.makeText(this, "${UserService.users.size}", Toast.LENGTH_LONG).show()
     }
 
     override fun signin(name: String, password: String) {
-        TODO("Not yet implemented")
+        if (UserService.login(name, password) == null) {
+            Toast.makeText(this, "Num funfo", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "Deu bom", Toast.LENGTH_LONG).show()
+        }
     }
 }
