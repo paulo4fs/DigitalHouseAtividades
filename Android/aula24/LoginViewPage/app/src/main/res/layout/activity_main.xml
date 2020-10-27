@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="25dp"
     tools:context=".MainActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
         android:text="MEU APP"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -21,7 +24,7 @@
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="#cecece"
+        android:backgroundTint="@color/white"
         android:minWidth="200dp"
         android:minHeight="200dp"
         app:cardCornerRadius="30dp">
@@ -29,14 +32,14 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tablayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#cecece" />
+                android:background="#cecece"
+                android:backgroundTint="@color/white" />
         </androidx.viewpager.widget.ViewPager>
 
 

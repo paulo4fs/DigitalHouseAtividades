@@ -1,22 +1,21 @@
 package com.example.loginviewpage
 
 import android.content.Context
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import kotlinx.android.synthetic.main.fragment_signup.*
 
 
 class FragmentSignup : Fragment() {
-
     private lateinit var iSubmit: ISubmit
 
     override fun onAttach(context: Context) {
@@ -35,8 +34,7 @@ class FragmentSignup : Fragment() {
     }
 
     private fun submit(view: View) {
-        val btnSignup = view.findViewById<Button>(R.id.btnSignup)
-
+        val btnSignup = view.findViewById<MaterialButton>(R.id.btnSignup)
         val checkbox = view.findViewById<CheckBox>(R.id.checkboxSignup)
 
         checkbox.setOnClickListener {
@@ -60,17 +58,18 @@ class FragmentSignup : Fragment() {
             } else {
                 Snackbar.make(view, "Deu bom", Snackbar.LENGTH_LONG).show()
                 iSubmit.signup(name, password)
+                iSubmit.changeTab(1)
             }
         }
     }
 
     private fun errorHandler(view: View) {
         val name =
-            view.findViewById<TextInputEditText>(R.id.tietNameSignup).text.toString()
+            view.findViewById<TextInputEditText>(R.id.tietNameSignup)
         val nameLayout =
             view.findViewById<TextInputLayout>(R.id.tilNameSignup)
         val password =
-            view.findViewById<TextInputEditText>(R.id.tietPasswordSignup).text.toString()
+            view.findViewById<TextInputEditText>(R.id.tietPasswordSignup)
         val passwordLayout =
             view.findViewById<TextInputLayout>(R.id.tilPasswordSignup)
         val passwordConfirmation =
@@ -78,10 +77,12 @@ class FragmentSignup : Fragment() {
         val passwordConfirmationLayout =
             view.findViewById<TextInputLayout>(R.id.tilPasswordConfirmSignup)
 
-        errorLabel(name, nameLayout)
-        errorLabel(password, passwordLayout)
+        putError(name.text.toString(), nameLayout)
+        putError(password.text.toString(), passwordLayout)
+        cleanError(name, nameLayout)
+        cleanError(password, passwordLayout)
 
-        if (passwordConfirmation != password || passwordConfirmation.isEmpty()) {
+        if (passwordConfirmation != password.text.toString() || passwordConfirmation.isEmpty()) {
             passwordConfirmationLayout.isErrorEnabled = true
             passwordConfirmationLayout.error = "it's different"
         } else {
@@ -89,12 +90,31 @@ class FragmentSignup : Fragment() {
         }
     }
 
-    private fun errorLabel(label: String, layout: TextInputLayout) {
+    private fun putError(label: String, layout: TextInputLayout) {
         if (label.isEmpty()) {
             layout.isErrorEnabled = true
             layout.error = "it's empty"
-        } else {
-            layout.isErrorEnabled = false
         }
+    }
+
+    private fun cleanError(input: TextInputEditText, layout: TextInputLayout) {
+        input.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                layout.isErrorEnabled = false
+                layout.error = ""
+            }
+        })
     }
 }

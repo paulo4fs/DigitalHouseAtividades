@@ -19,5 +19,4 @@ class ViewPageAdapter(
 
     //    Retorna o nome da tab
     override fun getPageTitle(position: Int) = titulos[position]
-
 }
