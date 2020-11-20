@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.aula29navigation.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_detalheFragment"
+            app:destination="@id/detalheFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_azulFragment"
+            app:destination="@id/azulFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalheFragment"
+        android:name="com.example.aula29navigation.DetalheFragment"
+        android:label="fragment_detalhe"
+        tools:layout="@layout/fragment_detalhe" >
+        <action
+            android:id="@+id/action_detalheFragment_to_segundoFragment"
+            app:destination="@id/segundoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/segundoFragment"
+        android:name="com.example.aula29navigation.SegundoFragment"
+        android:label="fragment_segundo"
+        tools:layout="@layout/fragment_segundo" />
+    <fragment
+        android:id="@+id/azulFragment"
+        android:name="com.example.aula29navigation.AzulFragment"
+        android:label="fragment_azul"
+        tools:layout="@layout/fragment_azul" />
+</navigation>

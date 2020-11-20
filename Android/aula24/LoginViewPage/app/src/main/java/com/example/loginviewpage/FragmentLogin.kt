@@ -77,7 +77,6 @@ class FragmentLogin : Fragment() {
         }
     }
 
-
     private fun errorLabel(label: String, layout: TextInputLayout) {
         if (label.isEmpty()) {
             layout.isErrorEnabled = true

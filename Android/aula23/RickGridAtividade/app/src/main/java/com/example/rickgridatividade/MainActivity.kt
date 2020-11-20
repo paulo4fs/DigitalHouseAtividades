@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         var toast: Toast? = null
 
         RickApi.getData(this, object : IRespostaDaApi {
-
             override fun obtevePersonagens(personagens: List<Personagem>) {
+
                 val rvAdapter = RvAdapter(personagens) {
                     toast?.cancel()
                     toast = Toast.makeText(this@MainActivity, it.nome, Toast.LENGTH_LONG)
@@ -45,6 +45,5 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-
     }
 }
