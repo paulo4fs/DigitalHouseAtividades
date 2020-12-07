@@ -7,18 +7,28 @@ import com.paulo.myapplication.repository.TarefaRepository
 import kotlinx.coroutines.Dispatchers
 
 class TarefaViewModel(private val repository: TarefaRepository) : ViewModel() {
-    fun addTarefa(tarefa: TarefaEntity) = liveData(Dispatchers.IO) {
+    fun addTarefa(descricao: String) = liveData(Dispatchers.IO) {
+        val tarefa = TarefaEntity(0, descricao)
         repository.addTarefa(tarefa)
-        emit(true)
+
+        emit(tarefa)
     }
 
     fun getAll() = liveData(Dispatchers.IO) {
-        val all = repository.selectAll()
-        emit(all)
+        emit(repository.selectAll())
     }
 
     fun countAll() = liveData(Dispatchers.IO) {
-        val number = repository.countAll()
-        emit(number)
+        emit(repository.countAll())
+    }
+
+    fun deleteOne(tarefaEntity: TarefaEntity) = liveData(Dispatchers.IO) {
+        repository.deleteOne(tarefaEntity)
+        emit(true)
+    }
+
+    fun deleteAll() = liveData(Dispatchers.IO) {
+        repository.deleteAll()
+        emit(true)
     }
 }

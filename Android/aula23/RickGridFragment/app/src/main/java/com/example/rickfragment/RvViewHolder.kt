@@ -8,7 +8,7 @@ import com.digitalhouse.rickapp.api.Personagem
 import com.squareup.picasso.Picasso
 
 class RvViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-    private val nome = view.findViewById<TextView>(R.id.tvNome)
+    val nome = view.findViewById<TextView>(R.id.tvNome)
     private val localizacao = view.findViewById<TextView>(R.id.tvLocalizacao)
     private val imagem = view.findViewById<ImageView>(R.id.ivImage)
 

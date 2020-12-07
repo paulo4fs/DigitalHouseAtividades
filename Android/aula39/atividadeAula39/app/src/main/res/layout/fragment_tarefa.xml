@@ -10,20 +10,31 @@
         android:id="@+id/llTextInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tietTarefa"
+        <EditText
+            android:id="@+id/etTarefa"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:hint="@string/tarefa" />
 
         <Button
             android:id="@+id/btnTarefa"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="click" />
+            android:text="add" />
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="clear" />
 
     <TextView
         android:id="@+id/tvCount"

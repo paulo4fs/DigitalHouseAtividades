@@ -6,8 +6,33 @@ import androidx.recyclerview.widget.RecyclerView
 import com.paulo.myapplication.R
 import com.paulo.myapplication.entity.TarefaEntity
 
-class TarefaAdapter(private var tarefas: MutableList<TarefaEntity>) :
+class TarefaAdapter(
+    private var _tarefas: MutableList<TarefaEntity>,
+    private var listener: (TarefaEntity) -> Unit
+) :
     RecyclerView.Adapter<TarefaViewHolder>() {
+
+    fun addTarefa(tarefa: TarefaEntity) {
+        _tarefas.add(tarefa)
+        notifyDataSetChanged()
+    }
+
+    fun adicionarTarefas(tarefas: List<TarefaEntity>) {
+        _tarefas.addAll(tarefas)
+        notifyDataSetChanged()
+    }
+
+    fun countAll() = _tarefas.size
+
+    fun deleteOne(position: Int) {
+        _tarefas.removeAt(position)
+        notifyDataSetChanged()
+    }
+
+    fun deleteAll() {
+        _tarefas.clear()
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TarefaViewHolder {
         val view =
@@ -16,10 +41,15 @@ class TarefaAdapter(private var tarefas: MutableList<TarefaEntity>) :
     }
 
     override fun onBindViewHolder(holder: TarefaViewHolder, position: Int) {
-        val item = tarefas[position]
+        val item = _tarefas[position]
 
         holder.bind(item)
+        holder.itemView.setOnClickListener { listener(item) }
+        holder.btnDelete.setOnClickListener {
+            deleteOne(position)
+        }
     }
 
-    override fun getItemCount() = tarefas.size
+    override fun getItemCount() = _tarefas.size
+
 }

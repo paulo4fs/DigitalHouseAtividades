@@ -6,6 +6,8 @@ import com.paulo.myapplication.entity.TarefaEntity
 class TarefaRepository(private val tarefaDao: TarefaDao) {
 
     suspend fun addTarefa(tarefa: TarefaEntity) = tarefaDao.addTarefa(tarefa)
-    suspend fun selectAll() = tarefaDao.selectAll()
-    suspend fun countAll() = tarefaDao.countAll()
+    suspend fun selectAll(): List<TarefaEntity> = tarefaDao.selectAll()
+    suspend fun countAll(): Int = tarefaDao.countAll()
+    suspend fun deleteOne(tarefa: TarefaEntity) = tarefaDao.deleteOne(tarefa)
+    suspend fun deleteAll() = tarefaDao.deleteAll()
 }
