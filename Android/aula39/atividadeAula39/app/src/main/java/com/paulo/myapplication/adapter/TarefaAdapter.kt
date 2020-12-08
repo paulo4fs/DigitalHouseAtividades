@@ -1,5 +1,6 @@
 package com.paulo.myapplication.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,6 +9,7 @@ import com.paulo.myapplication.entity.TarefaEntity
 
 class TarefaAdapter(
     private var _tarefas: MutableList<TarefaEntity>,
+    var iData: IData,
     private var listener: (TarefaEntity) -> Unit
 ) :
     RecyclerView.Adapter<TarefaViewHolder>() {
@@ -46,7 +48,7 @@ class TarefaAdapter(
         holder.bind(item)
         holder.itemView.setOnClickListener { listener(item) }
         holder.btnDelete.setOnClickListener {
-            deleteOne(position)
+            iData.sendSelected(position,_tarefas[position])
         }
     }
 

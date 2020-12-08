@@ -10,7 +10,6 @@ class TarefaViewModel(private val repository: TarefaRepository) : ViewModel() {
     fun addTarefa(descricao: String) = liveData(Dispatchers.IO) {
         val tarefa = TarefaEntity(0, descricao)
         repository.addTarefa(tarefa)
-
         emit(tarefa)
     }
 

@@ -1,6 +1,7 @@
 package com.paulo.myapplication.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.paulo.myapplication.R
+import com.paulo.myapplication.adapter.IData
 import com.paulo.myapplication.adapter.TarefaAdapter
 import com.paulo.myapplication.db.AppDatabase
 import com.paulo.myapplication.entity.TarefaEntity
@@ -21,12 +23,18 @@ import com.paulo.myapplication.viewmodel.TarefaViewModel
 import com.paulo.myapplication.viewmodel.TarefaViewModelFactory
 
 
-class TarefaFragment : Fragment() {
+class TarefaFragment : Fragment(), IData {
     private lateinit var _view: View
     private lateinit var _viewModel: TarefaViewModel
     private lateinit var _tarefaAdapter: TarefaAdapter
+    private lateinit var _iData: IData
 
     private var _listaDeTarefas = mutableListOf<TarefaEntity>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        _iData = this
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,7 +63,7 @@ class TarefaFragment : Fragment() {
         val manager = LinearLayoutManager(view.context)
 
 //         passagem da lista e clicklistener para o adapter
-        _tarefaAdapter = TarefaAdapter(_listaDeTarefas) {
+        _tarefaAdapter = TarefaAdapter(_listaDeTarefas, _iData) {
             Toast.makeText(this.context, it.nome, Toast.LENGTH_LONG).show()
         }
 
@@ -104,5 +112,16 @@ class TarefaFragment : Fragment() {
         _viewModel.countAll().observe(viewLifecycleOwner, {
             count.text = _tarefaAdapter.countAll().toString()
         })
+    }
+
+    private fun deleteOne(position: Int, tarefaEntity: TarefaEntity) {
+        _viewModel.deleteOne(tarefaEntity).observe(viewLifecycleOwner, {
+            _tarefaAdapter.deleteOne(position)
+            countAll()
+        })
+    }
+
+    override fun sendSelected(position: Int, tarefaEntity: TarefaEntity) {
+        deleteOne(position, tarefaEntity)
     }
 }
